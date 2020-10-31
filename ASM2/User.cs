@@ -18,14 +18,16 @@ namespace ASM2
             Deposit     = deposit;
         }
 
-        public double AddDeposit(double money)
+        
+        public void DisplayAccountBalance(User onlineUser)
         {
-            return Deposit += money;
-        }
-
-        public void DisplayAccountBalance()
-        {
-            Console.WriteLine("So du cua ban la: {0}", Deposit);
+            if (Bank.isLogin(onlineUser))
+            {
+                Console.WriteLine("So du cua ban la: {0}", onlineUser.Deposit);
+                return;
+            }
+            Console.WriteLine("Please login to use this feature");
+            return;
         }
     }
 }
